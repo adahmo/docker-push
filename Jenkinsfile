@@ -30,7 +30,7 @@ node {
     
     stage('Trigger Python-project') {
                 //Run the job
-                echo "triggering python-project"
-                build job: 'python-project', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                echo "triggering python2"
+                build job: 'python2', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
 }
