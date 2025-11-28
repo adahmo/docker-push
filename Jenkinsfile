@@ -25,7 +25,7 @@ node {
     stage('Run Container') {
         //run the container
         echo "Starting container test"
-        sh "docker run -d --name test-container -p 80001:80001 ${app.imageName()}"
+        sh "docker run -d --name test-container -p 8001:8001 ${app.imageName()}"
         sh "sleep 10"
     }
 
