@@ -26,12 +26,19 @@ node {
         //run the container
         echo "Running container from image"
         app.run('-p 8000:8000')
-    stage('Test Container){
+
+         }
+    stage('Test Container'){
        steps {
           script {
               app.inside {
-         }         sh 'curl http://localhost:8001'
-       }
-     } 
-   }
+                  sh 'curl http://localhost:8001'
+              }
+       
+           } 
+          
+        } 
+    
+     }
+
  }
