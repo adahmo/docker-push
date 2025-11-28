@@ -26,7 +26,8 @@ node {
         //run the container
         echo "Starting container test"
         sh "docker run -d --name test-container -p 8001:8001 ${app.imageName()}"
-        sh "sleep 10"
+        //Sleep for 20sec
+        sh "sleep 20"
     }
 
     stage('Cleanup') {
