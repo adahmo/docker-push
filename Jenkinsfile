@@ -23,6 +23,7 @@ node {
     }
 
     stage('Run Container') {
+        //run the container
         echo "Running container from image"
         app.run('-p 8000:8000')
     }
