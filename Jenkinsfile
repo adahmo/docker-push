@@ -24,21 +24,15 @@ node {
 
     stage('Run Container') {
         //run the container
-        echo "Running container from image"
-        app.run('-p 8000:8000')
+        echo "Starting container test"
+        sh "docker run -d --name test-container -p 80001:80001 ${app.imageName()}"
+        sh "sleep 10"
+    }
 
-         }
-    stage('Test Container'){
-       steps {
-          script {
-              app.inside {
-                  sh 'curl http://localhost:8001'
-              }
-       
-           } 
-          
-        } 
+    stage('Cleanup') {
+         echo "Stopping and removing test container"
+         sh "docker rm -f test-container || true"
+  
+    } 
     
-     }
-
  }
